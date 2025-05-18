@@ -14,7 +14,6 @@ export function executeCode(code: string, input: string, language: string): stri
         output += args.join(" ") + "\n";
       };
   
-      // eslint-disable-next-line no-new-func
       const func = new Function("input", code);
       func(input);
   
@@ -24,4 +23,3 @@ export function executeCode(code: string, input: string, language: string): stri
       return `Error: ${String(err)}`;
     }
   }
-  

@@ -61,7 +61,7 @@ export default function Home() {
     setOpenFiles((prev) => prev.filter((f) => f !== filename));
     if (activeFile === filename) {
       // Switch active file to last tab or none
-      setActiveFile((prev) => {
+      setActiveFile(() => {
         const idx = openFiles.indexOf(filename);
         if (openFiles.length === 1) return "";
         if (idx === 0) return openFiles[1];
@@ -127,7 +127,7 @@ export default function Home() {
         handleRun();
       }
     },
-    [files, input, activeFile, language]
+    [handleRun] // Added handleRun to the dependency array
   );
 
   useEffect(() => {
